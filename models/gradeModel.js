@@ -4,26 +4,27 @@ export default (mongoose) => {
       type: String,
       required: true,
     },
-    img: {
+    subject: {
       type: String,
       required: true,
     },
-    hp: {
+    type: {
       type: String,
       required: true,
-      min: 0,
     },
-    attack: {
+    value: {
       type: String,
       required: true,
-      min: 0,
+      validate(value) {
+        if (value < 0) {
+          throw new Error('Valor não pode ser negativo');
+        }
+      },
     },
-    speed: {
-      type: String,
-      required: true,
-      min: 0,
+    lastModified: {
+      type: Date,
+      default: Date.now,
     },
-    active: Boolean,
   });
 
   const Grade = moongose.model('grades', schema);

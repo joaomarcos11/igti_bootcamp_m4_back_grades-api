@@ -1,9 +1,22 @@
 import { db } from '../models/index.js';
 import { logger } from '../config/logger.js';
 
+// criar variavel global
+const Grade = db.grade;
+
 const create = async (req, res) => {
+  const { name, subject, type, value } = req.body;
+  const grade = new Grade({
+    name,
+    subject,
+    type,
+    value,
+  });
+
   try {
-    res.send();
+    await grade.save(grade);
+
+    res.send({ message: 'Grade salvo com sucesso' });
     logger.info(`POST /grade - ${JSON.stringify()}`);
   } catch (error) {
     res
