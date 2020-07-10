@@ -27,7 +27,7 @@ export default (mongoose) => {
     },
   });
 
-  const Grade = moongose.model('grades', schema);
+  const Grade = mongoose.model('grades', schema);
 
   return Grade;
 };
