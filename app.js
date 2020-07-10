@@ -27,7 +27,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(
   cors({
-    origin: 'https://jm-m4-grades-api.herokuapp.com',
+    origin: 'https://jm-m4-grades-app.herokuapp.com',
   })
 );
 
